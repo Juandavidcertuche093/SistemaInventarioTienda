@@ -9,13 +9,14 @@ import { provideClientHydration, withEventReplay } from '@angular/platform-brows
 import { provideHttpClient, withFetch, withInterceptors } from '@angular/common/http';
 
 //Interceptor
+import {injectSessionInterceptor} from "./core/interceptors/inject-session.interceptor"
 
 export const appConfig: ApplicationConfig = {
   providers: [
         provideZoneChangeDetection({ eventCoalescing: true }),
         provideRouter(routes),
         provideClientHydration(withEventReplay()),
-        provideHttpClient(withInterceptors([  ]), withFetch()),
+        provideHttpClient(withInterceptors([ injectSessionInterceptor ]), withFetch()),
         provideAnimationsAsync(),
         providePrimeNG({
           theme: {
