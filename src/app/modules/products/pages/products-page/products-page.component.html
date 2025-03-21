@@ -1,1 +1,100 @@
-<p>products-page works!</p>
+<mat-card class="p-2 mt-5 mx-10 mb-10">
+
+  <mat-card-title class="pb-4 flex items-center space-x-4">
+
+      <button mat-fab extended  (click)="nuevoMedicamento()">
+        <mat-icon>inventory</mat-icon>
+        Nuevo Producto
+      </button>
+
+      <button mat-fab extended  (click)="nuevaCategoria()">
+        <mat-icon>inbox_text</mat-icon>
+        Nueva Categoria
+      </button>
+
+      <button mat-fab extended  (click)="nuevoProveedor()">
+        <mat-icon>inbox_text</mat-icon>
+        Nuevo Proveedor
+      </button>
+
+      <button mat-fab extended  (click)="nuevoImagenProducto()">
+        <mat-icon>link</mat-icon>
+        Nueva imagen
+      </button>
+
+
+  </mat-card-title>
+
+  <mat-divider class="p-2"></mat-divider>
+
+  <mat-card-content >
+
+      <mat-form-field appearance="fill">
+          <mat-label>Buscar</mat-label>
+          <input matInput (keypress)="aplicarFiltroTabla($event, dt)" #input>
+      </mat-form-field>
+
+  <p-table
+      class="custom-table"
+      [value]="dataListaMProductos.data | orderBy: 'nombre'"
+      [paginator]="true"
+      [rows]="10"
+      [rowsPerPageOptions]="[10, 20, 30]"
+
+      [globalFilterFields]="['nombre', 'descripcionCategoria', 'precio', 'stock']"
+      #dt
+  >
+      <ng-template pTemplate="header">
+          <tr >
+              <th>Nombre</th>
+              <th>Categoria</th>
+              <th>Proveedor</th>
+              <th>Producto</th>
+              <th>Stock</th>
+              <th>Precio</th>
+              <th>Estado</th>
+              <th></th>
+          </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-producto>
+          <tr>
+              <td>{{ producto.nombre }}</td>
+              <td>{{ producto.descripcionCategoria }}</td>
+              <td>{{producto.nombreProveedor }}</td>
+              <td>
+                <img [src]="producto.rutaImagen"
+                  alt="Imagen del producto"
+                  class="w-16 h-16 rounded"
+                >
+              </td>
+              <td [ngClass]="getStockClass(producto.stock)">{{ producto.stock }}</td>
+              <td>{{ producto.precio  }}</td>
+              <td>{{ producto.esActivo == 1 ? 'Activo' : 'No activo' }}</td>
+              <td class="acciones-cell flex justify-center items-center space-x-1">
+                <p-button icon="pi pi-pencil"
+                  rounded="true"
+                  severity="info"
+                  class="w-16 h-16 text-lg"
+                  (click)="editarProducto(producto)"
+                />
+                <p-button icon="pi pi-trash"
+                  rounded="true"
+                  severity="danger"
+                  class="w-16 h-16 text-lg"
+                  (click)="eliminarProducto(producto)"
+                />
+              </td>
+          </tr>
+      </ng-template>
+  </p-table>
+
+  </mat-card-content>
+
+</mat-card>
+
+
+
+
+
+
+

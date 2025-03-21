@@ -55,8 +55,8 @@ export class ModalLoginComponent {
     private router: Router
   ){
     this.formulariLogin = this.fb.nonNullable.group({
-      name: ['Administrador', [Validators.required] ],
-      password: ['1234567', [ Validators.required, Validators.minLength(6)] ]
+      name: ['juan david certuche', [Validators.required] ],
+      password: ['123456789', [ Validators.required, Validators.minLength(6)] ]
     })
   }
 
