@@ -1,1 +1,133 @@
-<p>buys-pages works!</p>
+
+<mat-card class="p-2 mt-5 mx-10 mb-10">
+
+  <mat-card-content>
+      <form [formGroup]="formularioProductoCompra" (ngSubmit)="agregarProductoParaVenta()">
+
+          <mat-grid-list cols="2" rowHeight="80px">
+
+              <!-- primera columna filtar producto -->
+              <mat-grid-tile [colspan]="2">
+                  <mat-form-field class="full-width" appearance="fill">
+                      <mat-label>Producto</mat-label>
+                      <input matInput type="text" placeholder="Buscar..." [matAutocomplete]="auto" formControlName="producto">
+                      <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete"
+                          (optionSelected)="productoParaCompra($event)"
+                          [displayWith]="mostrarProducto"
+                      >
+                          <mat-option *ngFor="let option of listaProductosFiltro" [value]="option">
+                              {{option.nombre}}
+                          </mat-option>
+                      </mat-autocomplete>
+                  </mat-form-field>
+              </mat-grid-tile>
+
+              <mat-grid-tile [colspan]="2">
+                <mat-form-field class="full-width" appearance="fill">
+                  <mat-label>Proveedor</mat-label>
+                  <input matInput type="text" placeholder="Buscar..." [matAutocomplete]="autoProveedor" formControlName="proveedor">
+                  <mat-autocomplete autoActiveFirstOption #autoProveedor="matAutocomplete"
+                      (optionSelected)="proveedorParaCompra($event)"
+                      [displayWith]="mostraProveedor">
+                      <mat-option *ngFor="let option of listaProveedorFiltro" [value]="option">
+                          {{option.nombre}}
+                      </mat-option>
+                  </mat-autocomplete>
+                </mat-form-field>
+              </mat-grid-tile>
+
+
+              <!-- segunda columna cantidad -->
+              <mat-grid-tile>
+                  <mat-form-field class="full-width" appearance="fill" style="margin-left: 40px;">
+                      <mat-label>Cantiadad</mat-label>
+                      <input matInput type="number" formControlName="cantidad">
+                  </mat-form-field>
+              </mat-grid-tile>
+
+              <!-- tercera columna  boton agregar-->
+               <mat-grid-tile>
+                  <button mat-raised-button  color="primary" style="width: 80%;" [disabled]="formularioProductoCompra.invalid">
+                      <mat-icon mat-list-icon>add</mat-icon>Agregar
+                  </button>
+               </mat-grid-tile>
+
+          </mat-grid-list>
+
+      </form>
+
+      <mat-grid-list cols="4" rowHeight="80px">
+
+          <mat-grid-tile [colspan]="2"></mat-grid-tile>
+          <!-- tipo de pago -->
+          <mat-grid-tile>
+              <mat-form-field class="full-width" appearance="fill" style="margin-left: 40px;">
+                  <mat-label>Tipo de Pago</mat-label>
+                  <mat-select [(value)]="tipoPagoDefecto">
+                      <mat-option value="Efectivo">Efectivo</mat-option>
+                      <mat-option value="tarjeta">tarjeta</mat-option>
+                  </mat-select>
+              </mat-form-field>
+          </mat-grid-tile>
+
+          <!-- total a pagar .toFixed()-->
+          <mat-grid-tile>
+              <button mat-raised-button color="accent" style="width: 80%;">
+                  Total: $/.{{totalApagar}}
+              </button>
+          </mat-grid-tile>
+
+      </mat-grid-list>
+
+      <!-- tabla de detalle venta -->
+    <p-table
+      [value]="datosDetalleCompra.data"
+
+    >
+        <ng-template pTemplate="header">
+            <tr>
+                <th>Producto</th>
+                <th>Cantidad</th>
+                <th>Precio</th>
+                <th>Total</th>
+                <th></th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-venta>
+            <tr>
+                <td>{{ venta.descripcionProducto}}</td>
+                <td>{{ venta.cantidad }}</td>
+                <td>{{ venta.precioTexto}}</td>
+                <td>{{ venta.totalTexto}}</td>
+                <td class="flex gap-2">
+                  <button pButton icon="pi pi-trash" class="p-button-rounded p-button-danger" (click)="eliminarProducto(venta)"></button>
+                </td>
+            </tr>
+        </ng-template>
+    </p-table>
+
+
+      <mat-grid-list cols="4" rowHeight="80px">
+          <mat-grid-tile [colspan]="3"></mat-grid-tile>
+          <mat-grid-tile>
+
+              <button mat-raised-button color="primary" style="width: 80%;"
+                  [disabled]="listaProductosParaCompra.length < 1 || bloquearBotonRegistro "
+                  (click)="registrarCompra()">
+                  <mat-icon>new_label</mat-icon>Registrar
+              </button>
+
+          </mat-grid-tile>
+      </mat-grid-list>
+
+  </mat-card-content>
+
+</mat-card>
+
+
+
+
+
+
+
+
