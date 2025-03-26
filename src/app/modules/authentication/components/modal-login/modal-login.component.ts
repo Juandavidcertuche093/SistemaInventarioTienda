@@ -55,8 +55,8 @@ export class ModalLoginComponent {
     private router: Router
   ){
     this.formulariLogin = this.fb.nonNullable.group({
-      name: ['juan david certuche', [Validators.required] ],
-      password: ['123456789', [ Validators.required, Validators.minLength(6)] ]
+      name: ['', [Validators.required] ],
+      password: ['', [ Validators.required, Validators.minLength(6)] ]
     })
   }
 
@@ -76,14 +76,14 @@ export class ModalLoginComponent {
           case 'invalid-credentials':
             this.utilidadServicio.mostrarAlerta(
               "contraseña incorrecta. Por favor, verifique sus credenciales e inténtelo nuevamente.",
-              "Oops"
+              "error"
             );
             break;
 
           case 'user-not-found':
             this.utilidadServicio.mostrarAlerta(
               "El usuario no existe. Verifique el nombre ingresado.",
-              "Oops"
+              "error"
             );
             break;
 

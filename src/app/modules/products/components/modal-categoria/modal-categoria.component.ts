@@ -69,10 +69,10 @@ export class ModalCategoriaComponent implements OnInit {
     .subscribe({
       next:(data) =>  {
         if (data.status) {
-          this.utilidadesServicio.mostrarAlerta('La categoria se registro','Exito')
+          this.utilidadesServicio.mostrarAlerta('La categoria se registro','success')
           this.modalActual.close(true)
         } else {
-          this.utilidadesServicio.mostrarAlerta('No se puedo registrar la categoria','Error')
+          this.utilidadesServicio.mostrarAlerta('No se puedo registrar la categoria','error')
         }
       },
     })

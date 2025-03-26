@@ -111,10 +111,10 @@ export class ModalRegistroComponent {
       .subscribe({
         next: (data) => {
           if (data.status) {
-            this.utilidadService.mostrarAlerta("El usuario fue registrado","Exito")
+            this.utilidadService.mostrarAlerta("El usuario fue registrado","success")
             this.modalActual.close(true)
           } else {
-            this.utilidadService.mostrarAlerta("No se pudo registrar el usuario","Error")
+            this.utilidadService.mostrarAlerta("No se pudo registrar el usuario","error")
           }
         },
         error:(e) => {}
@@ -125,10 +125,10 @@ export class ModalRegistroComponent {
       .subscribe({
         next:(data) => {
           if (data.status) {
-            this.utilidadService.mostrarAlerta("El usuario fue actualizado","Exito")
+            this.utilidadService.mostrarAlerta("El usuario fue actualizado","success")
             this.modalActual.close(true)
           } else
-            this.utilidadService.mostrarAlerta("No se pudo actualizar el usuario","Error")
+            this.utilidadService.mostrarAlerta("No se pudo actualizar el usuario","error")
         },
         error:(e) => {}
       })

@@ -162,7 +162,7 @@ export class BuysPagesComponent {
 
 
     if (_cantidad <= 0 || isNaN(_cantidad)) {
-      this.utilidadService.mostrarAlerta('La cantidad debe ser mayor a 0', 'Error');
+      this.utilidadService.mostrarAlerta('La cantidad debe ser mayor a 0', 'error');
       return;
     }
 
@@ -234,7 +234,7 @@ export class BuysPagesComponent {
               text: `Numero de Compra ${response.value.numCompra}`
             })
           } else
-            this.utilidadService.mostrarAlerta('No se pudo registrar la Compra','Oops');
+            this.utilidadService.mostrarAlerta('No se pudo registrar la Compra','error');
         },
         complete:() => {
           this.bloquearBotonRegistro = false;

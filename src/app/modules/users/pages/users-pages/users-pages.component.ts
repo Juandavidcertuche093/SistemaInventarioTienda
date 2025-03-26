@@ -71,7 +71,7 @@ export class UsersPagesComponent implements OnInit {
         if(data.status)
           this.datalistaUsuario.data = data.value;
         else
-        this.utiliadService.mostrarAlerta("No se encontraron datos","Ooops!")
+        this.utiliadService.mostrarAlerta("No se encontraron datos","warning")
       }
     })
   }
@@ -124,14 +124,14 @@ export class UsersPagesComponent implements OnInit {
       .subscribe({
         next: (data) => {
           if (data.status) {
-            this.utiliadService.mostrarAlerta("Estado actualizado", "Listo!");
+            this.utiliadService.mostrarAlerta("Estado actualizado", "success");
             this.obtenerUsuarios();
           } else {
-            this.utiliadService.mostrarAlerta("No se pudo actualizar el estado", "Error");
+            this.utiliadService.mostrarAlerta("No se pudo actualizar el estado", "error");
           }
         },
         error: (e) => {
-          this.utiliadService.mostrarAlerta("Error al actualizar el estado", "Error");
+          this.utiliadService.mostrarAlerta("Error al actualizar el estado", "error");
         }
       });
   }
@@ -155,10 +155,10 @@ export class UsersPagesComponent implements OnInit {
         .subscribe({
           next: (data) => {
             if (data.status) {
-              this.utiliadService.mostrarAlerta("El usuario fue eliminado","Listo!")
+              this.utiliadService.mostrarAlerta("El usuario fue eliminado","success")
               this.obtenerUsuarios();
             } else
-              this.utiliadService.mostrarAlerta("No se pudo eliminar el usuario","Error")
+              this.utiliadService.mostrarAlerta("No se pudo eliminar el usuario","error")
           },
           error:(e) => {}
         })

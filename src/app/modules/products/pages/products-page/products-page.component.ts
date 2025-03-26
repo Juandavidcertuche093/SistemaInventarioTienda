@@ -81,7 +81,7 @@ export class ProductsPageComponent implements OnInit {
         if(data.status)
           this.dataListaMProductos.data = data.value
         else
-        this.utilidadServicio.mostrarAlerta('No se encontraron datos', 'Ooops')
+        this.utilidadServicio.mostrarAlerta('No se encontraron datos', 'warning')
       },
       error: (e) => {}
     })
@@ -170,10 +170,10 @@ export class ProductsPageComponent implements OnInit {
         .subscribe({
           next:(data) => {
             if(data.status){
-              this.utilidadServicio.mostrarAlerta("El producto fue eliminado","Listo!");
+              this.utilidadServicio.mostrarAlerta("El producto fue eliminado","success");
               this.obtenerProductos();
             }else
-            this.utilidadServicio.mostrarAlerta("No se pudo eliminar el producto","Error");
+            this.utilidadServicio.mostrarAlerta("No se pudo eliminar el producto","error");
           },
           error:(e) => {}
         })

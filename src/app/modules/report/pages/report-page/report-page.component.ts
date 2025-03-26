@@ -109,7 +109,7 @@ export class ReportPageComponent {
     const _fechaFin = moment(this.formularioFiltro.value.fechaFin).format('DD/MM/YYYY');
 
     if(_fechaInicio === 'Invalid date' || _fechaFin === 'Invalid date'){
-      this.utilidadService.mostrarAlerta('Debe de ingresar ambas fechas','Oops!')
+      this.utilidadService.mostrarAlerta('Debe de ingresar ambas fechas','warning')
       return;
     }
 
@@ -125,7 +125,7 @@ export class ReportPageComponent {
         } else {
           this.listaVentasReporte = [];
           this.dataVentaReporte.data = []
-          this.utilidadService.mostrarAlerta('No se encontraron datos','Oops!')
+          this.utilidadService.mostrarAlerta('No se encontraron datos','warning')
         }
       },
       error:(e)=>{}

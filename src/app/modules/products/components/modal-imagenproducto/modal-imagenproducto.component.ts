@@ -66,10 +66,10 @@ export class ModalImagenproductoComponent {
     .subscribe({
       next:(data) =>  {
         if (data.status) {
-          this.utilidadesServicio.mostrarAlerta('La imagen del producto se registro','Exito')
+          this.utilidadesServicio.mostrarAlerta('La imagen del producto se registro','success')
           this.modalActual.close(true)
         } else {
-          this.utilidadesServicio.mostrarAlerta('No se puedo registrar la imagen','Error')
+          this.utilidadesServicio.mostrarAlerta('No se puedo registrar la imagen','error')
         }
       },
     })

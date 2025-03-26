@@ -164,13 +164,13 @@ export class ModalProductosComponent implements OnInit{
       .subscribe({
         next: (data) => {
           if(data.status) {
-            this.utilidadServicio.mostrarAlerta('El producto se registro con','Exito')
+            this.utilidadServicio.mostrarAlerta('El producto se registro con exito','success')
             this.modalActual.close('true')
           } else
-            this.utilidadServicio.mostrarAlerta(data.msg,'Error')
+            this.utilidadServicio.mostrarAlerta(data.msg,'error')
         },
         error: (e) => {
-          this.utilidadServicio.mostrarAlerta("Ocurrio un error al guardar el producto", "Error")
+          this.utilidadServicio.mostrarAlerta("Ocurrio un error al guardar el producto", "error")
         }
       })
     } else
@@ -179,10 +179,10 @@ export class ModalProductosComponent implements OnInit{
       .subscribe({
         next: (data) => {
           if(data.status) {
-            this.utilidadServicio.mostrarAlerta("EL producto se actualizo", "exito")
+            this.utilidadServicio.mostrarAlerta("EL producto se actualizo", "success")
             this.modalActual.close('true')
           } else
-            this.utilidadServicio.mostrarAlerta("No se puede actualizar el producto","Error")
+            this.utilidadServicio.mostrarAlerta("No se puede actualizar el producto","error")
         },
         error:(e) => {}
       })

@@ -63,10 +63,10 @@ export class ModalProveedorComponent {
     .subscribe({
       next:(data) => {
         if (data.status) {
-          this.utilidadesServicio.mostrarAlerta('El proveedor se registro', 'Exito')
+          this.utilidadesServicio.mostrarAlerta('El proveedor se registro', 'success')
           this.modalActual.close(true)
         } else {
-          this.utilidadesServicio.mostrarAlerta('No se puedo registrar el proveedor','Error')
+          this.utilidadesServicio.mostrarAlerta('No se puedo registrar el proveedor','error')
         }
       },
     })

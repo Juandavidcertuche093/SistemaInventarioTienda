@@ -132,13 +132,13 @@ export class SalesPagesComponent {
 
 
     if (_cantidad <= 0 || isNaN(_cantidad)) {
-      this.utilidadService.mostrarAlerta('La cantidad debe ser mayor a 0', 'Error');
+      this.utilidadService.mostrarAlerta('La cantidad debe ser mayor a 0', 'error');
       return;
     }
 
     // Validar si el stock es suficiente
     if (this.productoSeleccionado.stock < _cantidad) {
-      this.utilidadService.mostrarAlerta('No hay suficiente stock para este medicamento', 'Oops');
+      this.utilidadService.mostrarAlerta('No hay suficiente stock para este medicamento', 'warning');
       return;
     }
 
@@ -203,7 +203,7 @@ export class SalesPagesComponent {
               text: `Numero de venta ${response.value.numVenta}`
             })
           } else
-            this.utilidadService.mostrarAlerta('No se pudo registrar la venta','Oops');
+            this.utilidadService.mostrarAlerta('No se pudo registrar la venta','warning');
         },
         complete:() => {
           this.bloquearBotonRegistro = false;

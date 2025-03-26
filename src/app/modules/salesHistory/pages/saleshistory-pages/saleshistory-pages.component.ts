@@ -124,7 +124,7 @@ export class SaleshistoryPagesComponent implements OnInit, AfterViewInit {
       _fechaFin = moment(this.formularioBusqueda.value.fechaFin).format('DD/MM/YYYY');
 
       if(_fechaInicio === 'invalid date' || _fechaFin === 'invalid date'){
-        this.utilidadService.mostrarAlerta('Debe de ingresar ambas fechas','Oops!')
+        this.utilidadService.mostrarAlerta('Debe de ingresar ambas fechas','warning')
         return;
       }
     }
@@ -140,7 +140,7 @@ export class SaleshistoryPagesComponent implements OnInit, AfterViewInit {
         if (data.status)
           this.dataListaVenta.data = data.value;
         else
-          this.utilidadService.mostrarAlerta('No se encontraron datos','Oops!')
+          this.utilidadService.mostrarAlerta('No se encontraron datos','warning')
       },
       error:(e)=>{}
     })
