@@ -71,6 +71,7 @@ export class DashboardPagesComponent {
   };
 
 
+
   ngOnInit(): void {
     this.dashboardServicio.resumen().subscribe({
       next: (data) => {
