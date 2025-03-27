@@ -57,7 +57,7 @@ export class SidebarComponent {
   medicamentosStockBajo: any[] = [];
 
   listaMenus:Menu[] = [];
-  correoUsuario:string='';
+  // correoUsuario:string='';
   rolUsuario:string='';
 
 
@@ -77,7 +77,7 @@ export class SidebarComponent {
     const usuario = this.user(); // Usamos el `computed` para acceder al usuario
 
     if (usuario) {
-      this.correoUsuario = usuario.correo;
+      // this.correoUsuario = usuario.correo;
       this.rolUsuario = usuario.rolDescripcion;
 
       // Llamar al servicio para obtener la lista de menús

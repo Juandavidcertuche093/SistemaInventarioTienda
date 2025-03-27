@@ -29,7 +29,6 @@
       <ng-template pTemplate="header">
           <tr>
               <th>Nombre</th>
-              <th>Correo</th>
               <th>Rol</th>
               <th>Estado</th>
               <th></th>
@@ -38,7 +37,6 @@
       <ng-template pTemplate="body" let-usuario>
           <tr>
               <td>{{ usuario.nombreCompleto}}</td>
-              <td>{{ usuario.correo }}</td>
               <td>{{ usuario.rolDescripcion}}</td>
               <td>
                 <mat-slide-toggle

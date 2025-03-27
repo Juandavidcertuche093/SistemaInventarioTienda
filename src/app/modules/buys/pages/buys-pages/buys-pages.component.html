@@ -2,7 +2,7 @@
 <mat-card class="p-2 mt-5 mx-10 mb-10">
 
   <mat-card-content>
-      <form [formGroup]="formularioProductoCompra" (ngSubmit)="agregarProductoParaVenta()">
+      <form [formGroup]="formularioProductoCompra" (ngSubmit)="agregarProductoParaCompra()">
 
           <mat-grid-list cols="2" rowHeight="80px">
 
@@ -88,7 +88,7 @@
             <tr>
                 <th>Producto</th>
                 <th>Cantidad</th>
-                <th>Precio</th>
+                <th>PrecioCompra</th>
                 <th>Total</th>
                 <th></th>
             </tr>

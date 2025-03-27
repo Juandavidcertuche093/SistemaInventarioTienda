@@ -64,7 +64,7 @@ import {OrderByPipe} from '../../pipes/order-by.pipe'
 })
 export class ProductsPageComponent implements OnInit {
 
-  columnaTabla: string[] = ['nombre', 'categoria', 'imgProducto', 'stock', 'precio', 'estado', 'acciones'];
+  columnaTabla: string[] = ['nombre', 'categoria', 'imgProducto', 'stock', 'precioCompra', 'precioVenta', 'estado', 'acciones'];
   dataInicio:Producto[]=[];
   dataListaMProductos = new MatTableDataSource(this.dataInicio);
 

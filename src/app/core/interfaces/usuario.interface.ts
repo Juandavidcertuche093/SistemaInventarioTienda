@@ -1,7 +1,7 @@
 export interface Usuario {
     idUsuario:number,
     nombreCompleto:string,
-    correo:string,
+    // correo:string,
     idRol:number,
     rolDescripcion:string,
     clave:string,

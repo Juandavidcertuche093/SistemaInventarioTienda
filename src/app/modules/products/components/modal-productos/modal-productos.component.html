@@ -79,17 +79,31 @@
             <!-- Cuarta fila: Precio -->
             <mat-grid-tile>
                 <mat-form-field appearance="fill">
-                    <mat-label>Precio</mat-label>
-                    <input matInput autocomplete="off" formControlName="precio">
+                    <mat-label>PrecioCompra</mat-label>
+                    <input matInput autocomplete="off" formControlName="precioCompra">
                     <mat-icon matSuffix>attach_money</mat-icon>
-                    <mat-error *ngIf="formularioProduncto.get('precio')?.hasError('required')">
+                    <mat-error *ngIf="formularioProduncto.get('precioCompra')?.hasError('required')">
                         El precio es requerido.
                     </mat-error>
-                    <mat-error *ngIf="formularioProduncto.get('precio')?.hasError('positivo')">
+                    <mat-error *ngIf="formularioProduncto.get('precioCompra')?.hasError('positivo')">
                       El precio debe ser un número positivo.
                   </mat-error>
                 </mat-form-field>
             </mat-grid-tile>
+
+            <mat-grid-tile>
+              <mat-form-field appearance="fill">
+                  <mat-label>PrecioVenta</mat-label>
+                  <input matInput autocomplete="off" formControlName="precioVenta">
+                  <mat-icon matSuffix>attach_money</mat-icon>
+                  <mat-error *ngIf="formularioProduncto.get('precioVenta')?.hasError('required')">
+                      El precio es requerido.
+                  </mat-error>
+                  <mat-error *ngIf="formularioProduncto.get('precioVenta')?.hasError('positivo')">
+                    El precio debe ser un número positivo.
+                </mat-error>
+              </mat-form-field>
+          </mat-grid-tile>
 
             <!-- Quinta fila: Estado -->
             <mat-grid-tile>

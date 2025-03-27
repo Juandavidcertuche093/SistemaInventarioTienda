@@ -90,7 +90,8 @@ export class ModalProductosComponent implements OnInit{
       idProveedor:  ['', [Validators.required]],
       idImagen:     ['', [Validators.required]],
       stock:        [{ value: 0, disabled: true }, [Validators.required]], // Bloqueado y con valor predete
-      precio:       ['', [Validators.required, Validators.min(1), numeroPositivo]],
+      precioCompra: ['', [Validators.required, Validators.min(1), numeroPositivo]],
+      precioVenta:  ['', [Validators.required, Validators.min(1), numeroPositivo]],
       esActivo:     ['1', [Validators.required]],
     });
     if (this.datosProducto != null && this.datosProducto != undefined){
@@ -137,7 +138,8 @@ export class ModalProductosComponent implements OnInit{
         idProveedor:  this.datosProducto.idProveedor,
         idImagen:     this.datosProducto.idImagen,
         stock:        this.datosProducto.stock,
-        precio:       this.datosProducto.precio,
+        precioCompra:       this.datosProducto.precioCompra,
+        precioVenta:       this.datosProducto.precioVenta,
         esActivo:     this.datosProducto.esActivo
       })
   }
@@ -155,7 +157,8 @@ export class ModalProductosComponent implements OnInit{
       nombreImagen:"",
       rutaImagen: "",
       stock: this.datosProducto ? this.datosProducto.stock : 0,
-      precio: this.formularioProduncto.value.precio,
+      precioCompra: this.formularioProduncto.value.precioCompra,
+      precioVenta: this.formularioProduncto.value.precioVenta,
       esActivo: parseInt(this.formularioProduncto.value.esActivo)
     }
     if (this.datosProducto == null){

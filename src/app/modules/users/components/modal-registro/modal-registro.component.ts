@@ -57,7 +57,6 @@ export class ModalRegistroComponent {
   ){
     this.formularioUsuario = this.fb.nonNullable.group({
       nombreCompleto:['', [Validators.required]],
-      correo: ['', [Validators.required, Validators.email]],
       idRol:['', [Validators.required]],
       // clave:['', [Validators.minLength(5), Validators.required]],
       clave: ['',[Validators.minLength(7)]],
@@ -83,7 +82,6 @@ export class ModalRegistroComponent {
     if (this.datosUsuario !== null && this.datosUsuario !== undefined)
       this.formularioUsuario.patchValue({
         nombreCompleto: this.datosUsuario.nombreCompleto,
-        correo: this.datosUsuario.correo,
         idRol: this.datosUsuario.idRol,
         clave: '',
         esActivo: this.datosUsuario.esActivo
@@ -95,7 +93,6 @@ export class ModalRegistroComponent {
     const _usuario: Usuario = {
       idUsuario: this.datosUsuario == null ? 0: this.datosUsuario.idUsuario,
       nombreCompleto: this.formularioUsuario.value.nombreCompleto,
-      correo: this.formularioUsuario.value.correo,
       idRol: this.formularioUsuario.value.idRol,
       rolDescripcion: '',
       clave: this.formularioUsuario.value.clave ? this.formularioUsuario.value.clave: undefined,

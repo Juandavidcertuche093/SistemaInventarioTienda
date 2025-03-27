@@ -71,7 +71,7 @@ export class SalesPagesComponent {
 
 
   formularioProductosVenta: FormGroup;
-  columnasTabla: string[] = ["producto","cantidad","precio","total","accion"];
+  columnasTabla: string[] = ["producto","cantidad","precioVenta","total","accion"];
   datosDetalleVenta = new MatTableDataSource(this.listaProductosParaVenta);
 
   //FUNCION QUE NOS SIRVE PARA BUSCAR EL PRODUCTO POR SU NOMBRE
@@ -127,7 +127,7 @@ export class SalesPagesComponent {
   //METODO PÁRA AGREGAR EL PRODUCTO
   agregarProductoParaVenta() {
     const _cantidad: number = this.formularioProductosVenta.value.cantidad;
-    const _precio: number = parseFloat(this.productoSeleccionado.precio);
+    const _precio: number = parseFloat(this.productoSeleccionado.precioVenta);
     const _total: number = _cantidad * _precio;
 
 

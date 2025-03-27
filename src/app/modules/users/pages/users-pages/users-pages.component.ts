@@ -55,7 +55,7 @@ import { ButtonModule } from 'primeng/button';
 })
 export class UsersPagesComponent implements OnInit {
 
-  columnasTabla: string[] = ['nombreCompleto', 'correo', 'rolDescription', 'estado', 'acciones'];
+  columnasTabla: string[] = ['nombreCompleto', 'rolDescription', 'estado', 'acciones'];
   dataInicio: Usuario[] = []
   datalistaUsuario = new MatTableDataSource(this.dataInicio)
   @ViewChild(MatPaginator) paginacionTabla!: MatPaginator

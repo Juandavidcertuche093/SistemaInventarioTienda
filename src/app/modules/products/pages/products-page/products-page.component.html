@@ -51,7 +51,8 @@
               <th>Proveedor</th>
               <th>Producto</th>
               <th>Stock</th>
-              <th>Precio</th>
+              <th>PrecioCompraUnidad</th>
+              <th>PrecioVentaUnidad</th>
               <th>Estado</th>
               <th></th>
           </tr>
@@ -68,7 +69,8 @@
                 >
               </td>
               <td [ngClass]="getStockClass(producto.stock)">{{ producto.stock }}</td>
-              <td>{{ producto.precio  }}</td>
+              <td>{{ producto.precioCompra }}</td>
+              <td>{{ producto.precioVenta  }}</td>
               <td>{{ producto.esActivo == 1 ? 'Activo' : 'No activo' }}</td>
               <td class="acciones-cell flex justify-center items-center space-x-1">
                 <p-button icon="pi pi-pencil"

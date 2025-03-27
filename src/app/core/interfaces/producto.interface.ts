@@ -9,6 +9,7 @@ export interface Producto {
   nombreImagen:         string;
   rutaImagen:           string;
   stock:                number;
-  precio:               string;
+  precioCompra:         string;
+  precioVenta:          string;
   esActivo:             number;
 }
